@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.nav-mobile {
+  &__button {
+    @include layout-position($z-index: 3);
+  }
+
+  &__menu {
+    @include layout-position(
+      $position: fixed,
+      $top: 0,
+      $right: 0,
+      $bottom: 0,
+      $left: 0,
+      $z-index: 2
+    );
+    @include layout-background($color: var(--black));
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+
+    &--show {
+      transform: translateX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  &__header {
+    @include layout-position($position: sticky, $top: 0, $right: 0, $left: 0);
+    @include layout-size($height: 160px);
+    @include layout-background($color: var(--black));
+  }
+
+  &__list {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $gap: map.get($spacing, 8)
+    );
+
+    @include layout-spacing($padding: 40px 0 map.get($spacing, 16) 0);
+  }
+
+  &__item {
+    @include font-style(
+      $color: var(--white),
+      $font-size: px-to-rem(map.get($fontSize, xl))
+    );
+
+    @include family-josefin-sans();
+  }
+}
+
+.nav-large {
+  @include layout-position($z-index: 2);
+
+  &__list {
+    @include flexbox(
+      $display: flex,
+      $direction: row,
+      $gap: map.get($spacing, 8)
+    );
+  }
+
+  &__item {
+    @include layout-position($position: relative);
+  }
+
+  &__link {
+    @include font-style(
+      $color: var(--white),
+      $font-size: px-to-rem(map.get($fontSize, base)),
+      $text-transform: capitalize,
+      $letter-spacing: 0.2px
+    );
+    @include family-alata();
+
+    &::after {
+      content: "";
+      @include layout-position($position: absolute, $bottom: 0, $left: 0);
+      @include layout-background($color: var(--white));
+      @include layout-size($height: 2px, $width: 50%);
+      transform: translateX(50%) translateY(13px) scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        transform: translateX(50%) translateY(13px) scaleX(1);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+  }
+}

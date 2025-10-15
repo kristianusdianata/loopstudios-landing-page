@@ -1,0 +1,8 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.main {
+  @include flexbox($display: flex, $direction: column);
+  @include layout-spacing($margin: 0 0 map.get($spacing, 16) * 1.5 0);
+}

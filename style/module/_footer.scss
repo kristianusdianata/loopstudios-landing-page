@@ -1,0 +1,115 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.footer {
+  @include layout-background($color: var(--black));
+
+  &__container {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $gap: map.get($spacing, 16)
+    );
+
+    @include layout-spacing(
+      $padding: map.get($spacing, 16) map.get($spacing, 8)
+    );
+
+    @include media-query-md() {
+      @include flexbox($direction: row, $justify: space-between);
+      @include layout-spacing($padding: map.get($spacing, 8));
+    }
+  }
+
+  &__nav-menu {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $align: center,
+      $gap: map.get($spacing, 12)
+    );
+
+    @include media-query-md() {
+      @include flexbox($align: start, $gap: map.get($spacing, 6));
+    }
+  }
+
+  &__logo-icon {
+    @include layout-size($width: 210px);
+
+    @include media-query-md() {
+      @include layout-size($width: 144px);
+    }
+  }
+
+  &__list {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $align: center,
+      $gap: map.get($spacing, 6)
+    );
+
+    @include media-query-md() {
+      @include flexbox($direction: row, $justify: space-between);
+    }
+  }
+
+  &__item {
+    @include family-alata();
+    @include font-style(
+      $color: var(--grey-200),
+      $font-size: px-to-rem(map.get($fontSize, lg)),
+      $text-transform: capitalize
+    );
+
+    @include media-query-md() {
+      @include font-style($font-size: px-to-rem(map.get($fontSize, base)));
+    }
+  }
+
+  &__social-menu {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $align: center,
+      $gap: map.get($spacing, 8)
+    );
+
+    @include media-query-md() {
+      @include flexbox($align: end, $gap: map.get($spacing, 6));
+    }
+  }
+
+  &__social-list {
+    @include flexbox(
+      $display: flex,
+      $direction: row,
+      $justify: center,
+      $gap: map.get($spacing, 6)
+    );
+  }
+
+  &__social-link {
+    @include layout-size($width: 32px);
+
+    @include media-query-md() {
+      @include layout-size($width: 24px);
+    }
+  }
+
+  &__copyright {
+    @include font-style(
+      $color: hsl(0, 0%, 55%),
+      $font-size: px-to-rem(map.get($fontSize, lg)),
+      $text-align: center,
+      $line-height: 1.2
+    );
+    @include family-alata();
+
+    @include media-query-md() {
+      @include font-style($font-size: px-to-rem(map.get($fontSize, base)));
+    }
+  }
+}

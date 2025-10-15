@@ -1,0 +1,69 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.hero {
+  @include layout-position($position: relative);
+
+  &__container {
+    @include layout-position(
+      $position: absolute,
+      $top: 0,
+      $right: 0,
+      $bottom: 0,
+      $left: 0
+    );
+    @include flexbox(
+      $display: flex,
+      $align: center,
+      $direction: column,
+      $justify: center
+    );
+    @include layout-spacing($padding: 0 map.get($spacing, 8));
+
+    @include media-query-sm() {
+      @include flexbox($align: flex-start);
+    }
+  }
+
+  &__image {
+    @include media-query-md() {
+      & > img {
+        block-size: 650px;
+        object-fit: cover;
+      }
+
+      &::after {
+        content: "";
+        @include layout-position(
+          $position: absolute,
+          $top: 0,
+          $right: 0,
+          $bottom: 0,
+          $left: 0
+        );
+        @include layout-background($color: var(--black));
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &__wrapper {
+    @include border($width: 3px, $style: solid, $color: var(--white));
+    @include layout-spacing($padding: map.get($spacing, 8));
+    @include layout-size($width: 100%);
+
+    @include media-query-md() {
+      @include layout-size($max-width: 650px);
+    }
+  }
+
+  &__title {
+    @include layout-size($max-width: 0px);
+    @include flexbox($display: inline-flex);
+
+    @include media-query-md() {
+      @include layout-size($max-width: 100%);
+    }
+  }
+}

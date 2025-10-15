@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <!-- script -->
+    <script src="./script/index.js" type="module"></script>
+
+    <title>Frontend Mentor | Loopstudios landing page</title>
+  </head>
+  <body>
+    <header class="header container">
+      <div class="header__logo">
+        <img src="./images/logo.svg" alt="Logo" />
+      </div>
+
+      <div class="nav-mobile header__nav-mobile">
+        <button
+          aria-label="Open Navigation menu"
+          aria-controls="navMenuContent"
+          aria-expanded="false"
+          class="nav-mobile__button"
+        >
+          <img src="./images/icon-hamburger.svg" alt="" aria-hidden="true" />
+        </button>
+
+        <nav id="navMenuContent" class="nav-mobile__menu" aria-hidden="true">
+          <div class="nav-mobile__container container">
+            <div class="nav-mobile__header"></div>
+            <ul class="nav-mobile__list">
+              <li class="nav-mobile__item">
+                <a href="#">ABOUT</a>
+              </li>
+              <li class="nav-mobile__item">
+                <a href="#">CAREERS</a>
+              </li>
+              <li class="nav-mobile__item">
+                <a href="#">EVENTS</a>
+              </li>
+              <li class="nav-mobile__item">
+                <a href="#">PRODUCTS</a>
+              </li>
+              <li class="nav-mobile__item">
+                <a href="#">SUPPORT</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="nav-large header__nav-large">
+        <nav class="nav-large__menu">
+          <ul class="nav-large__list">
+            <li class="nav-large__item">
+              <a href="#" class="nav-large__link">about</a>
+            </li>
+            <li class="nav-large__item">
+              <a href="#" class="nav-large__link">careers</a>
+            </li>
+            <li class="nav-large__item">
+              <a href="#" class="nav-large__link">events</a>
+            </li>
+            <li class="nav-large__item">
+              <a href="#" class="nav-large__link">products</a>
+            </li>
+            <li class="nav-large__item">
+              <a href="#" class="nav-large__link">support</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <picture class="hero__image">
+          <source
+            media="(min-width:768px)"
+            srcset="./images/desktop/image-hero.jpg"
+          />
+          <img src="./images/mobile/image-hero.jpg" alt="" aria-hidden="true" />
+        </picture>
+
+        <div class="hero__container container">
+          <div class="hero__wrapper">
+            <h1 class="hero__title">Immersive experiences that deliver</h1>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <article class="card">
+          <picture class="card__header">
+            <source
+              media="(min-width:768px)"
+              srcset="./images/desktop/image-interactive.jpg"
+            />
+            <img
+              src="./images/mobile/image-interactive.jpg"
+              alt=""
+              aria-hidden="true"
+            />
+          </picture>
+          <div class="card__body">
+            <h2 class="card__title">The leader in interactive VR</h2>
+            <p class="card__desc">
+              Founded in 2011, Loopstudios has been producing world-class
+              virtual reality projects for some of the best companies around the
+              globe. Our award-winning creations have transformed businesses
+              through digital experiences that bind to their brand.
+            </p>
+          </div>
+        </article>
+        <article class="creations">
+          <h2 class="creations__title">Our creations</h2>
+          <ul class="creations__list">
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-deep-earth.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-deep-earth.jpg"
+                    alt="Deep earth"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text">deep earth</span></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-night-arcade.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-night-arcade.jpg"
+                    alt="Night arcade"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text">night arcade</span></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-soccer-team.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-soccer-team.jpg"
+                    alt="Soccer team VR"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text"
+                      >soccer team vr</span
+                    ></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-grid.jpg"
+                  />
+                  <img src="./images/mobile/image-grid.jpg" alt="The grid" />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text">the grid</span></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-from-above.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-from-above.jpg"
+                    alt="From up above VR"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text"
+                      >from up above vr</span
+                    ></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-pocket-borealis.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-pocket-borealis.jpg"
+                    alt="Pocket borealis"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text"
+                      >pocket borealis</span
+                    ></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-curiosity.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-curiosity.jpg"
+                    alt="The curiosity"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text"
+                      >the curiosity</span
+                    ></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+            <li class="creations__item">
+              <figure class="creations__figure">
+                <picture class="creations__image">
+                  <source
+                    media="(min-width:768px)"
+                    srcset="./images/desktop/image-fisheye.jpg"
+                  />
+                  <img
+                    src="./images/mobile/image-fisheye.jpg"
+                    alt="Make it fisheye"
+                  />
+                </picture>
+                <figcaption class="creations__caption">
+                  <a href="#" class="creations__caption-link">
+                    <span class="creations__caption-text"
+                      >make it fisheye</span
+                    ></a
+                  >
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+          <a href="#" class="creations__button">see all</a>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__nav-menu">
+          <div class="footer__logo-icon">
+            <img src="./images/logo.svg" alt="Footer logo website" />
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__list">
+              <li class="footer__item"><a href="#">about</a></li>
+              <li class="footer__item"><a href="#">careers</a></li>
+              <li class="footer__item"><a href="#">events</a></li>
+              <li class="footer__item"><a href="#">products</a></li>
+              <li class="footer__item"><a href="#">support</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer__social-menu">
+          <ul class="footer__social-list">
+            <li class="footer__social-link">
+              <a href="#" aria-label="Facebook url"
+                ><img
+                  src="./images/icon-facebook.svg"
+                  alt=""
+                  aria-hidden="true"
+              /></a>
+            </li>
+            <li class="footer__social-link">
+              <a href="#" aria-label="Twitter url"
+                ><img src="./images/icon-twitter.svg" alt="" aria-hidden="true"
+              /></a>
+            </li>
+            <li class="footer__social-link">
+              <a href="#" aria-label="pinterest url"
+                ><img
+                  src="./images/icon-pinterest.svg"
+                  alt=""
+                  aria-hidden="true"
+              /></a>
+            </li>
+            <li class="footer__social-link">
+              <a href="#" aria-label="Instagram url"
+                ><img
+                  src="./images/icon-instagram.svg"
+                  alt=""
+                  aria-hidden="true"
+              /></a>
+            </li>
+          </ul>
+
+          <div class="footer__copyright">
+            <p>&copy; 2021 Loopstudios. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

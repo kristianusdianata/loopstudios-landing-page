@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.container {
+  @include layout-size($width: 100%, $max-width: 576px);
+  @include layout-spacing($margin: auto, $padding-inline: map.get($spacing, 8));
+
+  @include media-query-md() {
+    @include layout-size($max-width: 1200px);
+  }
+}

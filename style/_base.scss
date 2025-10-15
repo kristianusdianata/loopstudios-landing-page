@@ -1,0 +1,81 @@
+@use "sass:map";
+@use "./variable" as *;
+@use "./utils/index" as *;
+
+:root {
+  @each $name, $color in $themeColors {
+    --#{"" + $name}: #{$color};
+  }
+}
+
+html {
+  font-size: px-to-percent(map.get($fontSize, base));
+}
+
+h1 {
+  @include font-style(
+    $color: var(--white),
+    $font-size:
+      clamp(
+        px-to-rem(map.get($fontSize, lg) + 3.2px),
+        -0.7813rem + 11.7188vw,
+        px-to-rem(map.get($fontSize, 4xl) + 1.5px)
+      ),
+    $line-height: 1.1,
+    $letter-spacing: 1px,
+    $text-transform: uppercase
+  );
+  @include family-josefin-sans();
+
+  @include media-query-md() {
+    @include font-style(
+      $font-size: px-to-rem(map.get($fontSize, 4xl) + 17.5px)
+    );
+  }
+}
+
+h2 {
+  @include font-style(
+    $color: var(--black),
+    $font-size: px-to-rem(map.get($fontSize, 2xl)),
+    $line-height: 1.1,
+    $text-transform: uppercase
+  );
+  @include family-josefin-sans();
+
+  @include media-query-md() {
+    @include font-style(
+      $font-size: px-to-rem(map.get($fontSize, 3xl) + 5.35px)
+    );
+  }
+}
+
+body {
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  @include layout-background($color: var(--white));
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}

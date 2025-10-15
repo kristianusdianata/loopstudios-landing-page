@@ -1,0 +1,38 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.header {
+  @include layout-position(
+    $position: absolute,
+    $left: 0,
+    $right: 0,
+    $z-index: 1
+  );
+  @include flexbox(
+    $display: flex,
+    $justify: space-between,
+    $align: center,
+    $direction: row
+  );
+  @include layout-spacing($padding-block: map.get($spacing, 16));
+  @include layout-size($width: 100%);
+
+  &__logo {
+    @include layout-position($z-index: 3);
+  }
+
+  &__nav-mobile {
+    @include flexbox($display: flex);
+    @include media-query-md() {
+      display: none;
+    }
+  }
+
+  &__nav-large {
+    display: none;
+    @include media-query-md() {
+      display: block;
+    }
+  }
+}

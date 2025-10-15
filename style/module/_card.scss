@@ -1,0 +1,77 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.card {
+  @include layout-spacing($margin-block: map.get($spacing, 16));
+  @include layout-position($position: relative);
+
+  @include media-query-md() {
+    @include layout-spacing(
+      $margin-block: map.get($spacing, 12) + 100px map.get($spacing, 10) + 40px
+    );
+  }
+
+  &__title {
+    @include font-style(
+      $font-size: px-to-rem(map.get($fontSize, 2xl)),
+      $text-align: center
+    );
+
+    @include media-query-md() {
+      @include font-style(
+        $font-size:
+          clamp(
+            px-to-rem(map.get($fontSize, 2xl) - 0.3px),
+            0.607rem + 3.2407vw,
+            px-to-rem(map.get($fontSize, 3xl) + 5.4px)
+          ),
+        $text-align: start
+      );
+    }
+  }
+
+  &__header {
+    & > img {
+      @include media-query-md() {
+        @include layout-size($max-width: 731px);
+      }
+    }
+  }
+
+  &__body {
+    @include layout-spacing($padding: map.get($spacing, 12) 0 0 0);
+
+    @include media-query-md() {
+      @include layout-position($position: absolute, $bottom: 0, $right: 0);
+      @include layout-background($color: var(--white));
+      @include layout-size($width: 50%, $height: 65%);
+      @include layout-spacing(
+        $padding: map.get($spacing, 16) 0 0 map.get($spacing, 16)
+      );
+    }
+  }
+
+  &__desc {
+    @include layout-spacing($padding: map.get($spacing, 6) 0 0 0);
+    @include font-style(
+      $color: hsl(0, 0%, 55%),
+      $font-size: px-to-rem(map.get($fontSize, md)),
+      $line-height: 1.65,
+      $text-align: center
+    );
+    @include family-alata();
+
+    @include media-query-md() {
+      @include font-style(
+        $font-size:
+          clamp(
+            px-to-rem(map.get($fontSize, sm) + 2.35px),
+            0.722rem + 0.3472vw,
+            px-to-rem(map.get($fontSize, base) + 1px)
+          ),
+        $text-align: start
+      );
+    }
+  }
+}

@@ -1,0 +1,149 @@
+@use "sass:map";
+@use "../utils/index" as *;
+@use "../variable" as *;
+
+.creations {
+  @include grid($cols: 1fr, $gap: map.get($spacing, 10), $align: center);
+  @include layout-spacing($padding-block: map.get($spacing, 16));
+
+  @include media-query-md() {
+    @include grid($cols: repeat(2, 1fr), $gap: map.get($spacing, 16) 0);
+  }
+
+  &__title {
+    @include font-style($text-align: center);
+
+    @include media-query-md() {
+      @include grid-position($col: 1, $row: 1);
+      @include font-style($text-align: start);
+    }
+  }
+
+  &__list {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $gap: map.get($spacing, 8)
+    );
+
+    @include media-query-md() {
+      @include grid-position($col: 1 / span 2, $row: 2);
+      @include grid($cols: repeat(3, 1fr));
+    }
+
+    @include media-query-lg() {
+      @include grid($cols: repeat(4, 1fr));
+    }
+  }
+
+  &__figure {
+    @include layout-position($position: relative);
+  }
+
+  &__image {
+    &::after {
+      content: "";
+      @include layout-position(
+        $position: absolute,
+        $top: 0,
+        $right: 0,
+        $bottom: 0,
+        $left: 0
+      );
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+      pointer-events: none;
+    }
+  }
+
+  &__caption {
+    @include layout-position(
+      $position: absolute,
+      $top: 0,
+      $bottom: 0,
+      $left: 0,
+      $right: 0
+    );
+
+    &-link {
+      @include flexbox($display: flex, $justify: center, $direction: column);
+      @include layout-size($height: 100%);
+      @include font-style(
+        $color: var(--grey-200),
+        $font-size: px-to-rem(map.get($fontSize, xl)),
+        $text-transform: uppercase
+      );
+      @include family-josefin-sans();
+      transition: color 0.3s ease-in-out;
+
+      &::after {
+        content: "";
+        @include layout-position(
+          $position: absolute,
+          $top: 0,
+          $right: 0,
+          $bottom: 0,
+          $left: 0
+        );
+        @include layout-background($color: var(--white));
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      &:hover,
+      &:focus {
+        @include font-style($color: var(--black));
+        transition: color 0.3s ease-in-out;
+
+        &::after {
+          opacity: 0.7;
+          transition: opacity 0.3s ease-in-out;
+        }
+      }
+
+      @include media-query-md() {
+        @include flexbox($justify: end);
+      }
+    }
+
+    &-text {
+      @include layout-position($z-index: 1);
+      @include layout-spacing($padding: 0 0 0 map.get($spacing, 6));
+
+      @include media-query-md() {
+        @include layout-spacing(
+          $padding: 0 0 map.get($spacing, 6) map.get($spacing, 6)
+        );
+      }
+    }
+  }
+
+  &__button {
+    @include border($width: 2px, $style: solid, $color: var(--black));
+    @include layout-size($width: fit-content);
+    @include layout-spacing(
+      $margin: auto,
+      $padding: map.get($spacing, 3) map.get($spacing, 12)
+    );
+    @include font-style(
+      $color: var(--black),
+      $letter-spacing: 6px,
+      $text-transform: uppercase,
+      $font-size: px-to-rem(map.get($fontSize, lg))
+    );
+    @include layout-background($color: var(--white));
+    @include family-alata();
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      @include layout-background($color: var(--black));
+      @include font-style($color: var(--white));
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    @include media-query-md() {
+      @include grid-position($col: 2, $row: 1);
+      @include layout-spacing($margin-inline: auto 0, $margin-block: auto);
+    }
+  }
+}
