@@ -3,14 +3,10 @@
 @use "../variable" as *;
 
 .card {
-  @include layout-spacing($margin-block: map.get($spacing, 16));
+  @include layout-spacing(
+    $margin-block: map.get($spacing, 12) + 100px map.get($spacing, 10) + 40px
+  );
   @include layout-position($position: relative);
-
-  @include media-query-md() {
-    @include layout-spacing(
-      $margin-block: map.get($spacing, 12) + 100px map.get($spacing, 10) + 40px
-    );
-  }
 
   &__title {
     @include font-style(

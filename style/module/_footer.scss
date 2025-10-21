@@ -57,12 +57,32 @@
   }
 
   &__item {
+    @include layout-position($position: relative);
+  }
+
+  &__link {
     @include family-alata();
     @include font-style(
       $color: var(--grey-200),
       $font-size: px-to-rem(map.get($fontSize, lg)),
       $text-transform: capitalize
     );
+
+    &::after {
+      content: "";
+      @include layout-position($position: absolute, $bottom: 0, $left: 0);
+      @include layout-background($color: var(--white));
+      @include layout-size($height: 2px, $width: 50%);
+      transform: translateX(50%) translateY(13px) scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover,
+    &:focus {
+      &::after {
+        transform: translateX(50%) translateY(13px) scaleX(1);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
 
     @include media-query-md() {
       @include font-style($font-size: px-to-rem(map.get($fontSize, base)));
@@ -91,11 +111,32 @@
     );
   }
 
-  &__social-link {
+  &__social-item {
+    @include layout-position($position: relative);
     @include layout-size($width: 32px);
 
     @include media-query-md() {
       @include layout-size($width: 24px);
+    }
+  }
+
+  &__social-link {
+    @include media-query-md() {
+      &::after {
+        content: "";
+        @include layout-position($position: absolute, $bottom: 0, $left: 0);
+        @include layout-background($color: var(--white));
+        @include layout-size($height: 2px, $width: 50%);
+        transform: translateX(50%) translateY(13px) scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover,
+      &:focus {
+        &::after {
+          transform: translateX(50%) translateY(13px) scaleX(1);
+          transition: transform 0.3s ease-in-out;
+        }
+      }
     }
   }
 

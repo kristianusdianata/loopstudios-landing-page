@@ -621,6 +621,9 @@ button {
   }
 }
 .footer__item {
+  position: relative;
+}
+.footer__link {
   font-family: "Alata", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -628,8 +631,23 @@ button {
   text-transform: capitalize;
   font-size: 1.47rem;
 }
+.footer__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
+  block-size: 2px;
+  inline-size: 50%;
+  transform: translateX(50%) translateY(13px) scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.footer__link:hover::after, .footer__link:focus::after {
+  transform: translateX(50%) translateY(13px) scaleX(1);
+  transition: transform 0.3s ease-in-out;
+}
 @media (min-width: 768px) {
-  .footer__item {
+  .footer__link {
     font-size: 0.94rem;
   }
 }
@@ -651,12 +669,30 @@ button {
   flex-direction: row;
   gap: 24px;
 }
-.footer__social-link {
+.footer__social-item {
+  position: relative;
   inline-size: 32px;
 }
 @media (min-width: 768px) {
-  .footer__social-link {
+  .footer__social-item {
     inline-size: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .footer__social-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white);
+    block-size: 2px;
+    inline-size: 50%;
+    transform: translateX(50%) translateY(13px) scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  .footer__social-link:hover::after, .footer__social-link:focus::after {
+    transform: translateX(50%) translateY(13px) scaleX(1);
+    transition: transform 0.3s ease-in-out;
   }
 }
 .footer__copyright {
@@ -811,13 +847,8 @@ button {
 }
 
 .card {
-  margin-block: 64px;
+  margin-block: 148px 80px;
   position: relative;
-}
-@media (min-width: 768px) {
-  .card {
-    margin-block: 148px 80px;
-  }
 }
 .card__title {
   font-size: 2.29rem;
